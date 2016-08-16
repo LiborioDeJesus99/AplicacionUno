@@ -30,13 +30,13 @@ public class Principal extends javax.swing.JFrame {
 
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
-        txtPrimerNumero = new javax.swing.JLabel();
-        txtSegundoNumero = new javax.swing.JLabel();
+        txtN1 = new javax.swing.JLabel();
+        txtN2 = new javax.swing.JLabel();
         cmdCalcular = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtPrimerNumero = new javax.swing.JTextField();
+        txtSegundoNumero = new javax.swing.JTextField();
         txtResultado = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtRes = new javax.swing.JTextField();
         cmdBorrar = new javax.swing.JButton();
 
         jToggleButton1.setText("jToggleButton1");
@@ -48,49 +48,85 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setText("Suma De Dos Numeros");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
 
-        txtPrimerNumero.setFont(new java.awt.Font("Century", 1, 11)); // NOI18N
-        txtPrimerNumero.setText("Primer Numero");
-        getContentPane().add(txtPrimerNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+        txtN1.setFont(new java.awt.Font("Century", 1, 11)); // NOI18N
+        txtN1.setText("Primer Numero");
+        getContentPane().add(txtN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, 10));
 
-        txtSegundoNumero.setFont(new java.awt.Font("Century", 1, 11)); // NOI18N
-        txtSegundoNumero.setText("Segundo Numero");
-        getContentPane().add(txtSegundoNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, 10));
+        txtN2.setFont(new java.awt.Font("Century", 1, 11)); // NOI18N
+        txtN2.setText("Segundo Numero");
+        getContentPane().add(txtN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, 10));
 
         cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtPrimerNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtPrimerNumeroActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 116, 70, -1));
+        getContentPane().add(txtPrimerNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 116, 70, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtSegundoNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtSegundoNumeroActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 114, 70, -1));
+        getContentPane().add(txtSegundoNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 114, 70, -1));
 
         txtResultado.setFont(new java.awt.Font("Century", 1, 11)); // NOI18N
         txtResultado.setText("Resultado");
         getContentPane().add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 173, -1, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 48, -1));
+        getContentPane().add(txtRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 48, -1));
 
         cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtPrimerNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrimerNumeroActionPerformed
         
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtPrimerNumeroActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtSegundoNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSegundoNumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtSegundoNumeroActionPerformed
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        String n1,n2,res;
+        int nume1, nume2, suma;
+        
+        n1=txtPrimerNumero.getText().trim();
+        n2=txtSegundoNumero.getText().trim();
+        
+        nume1=Integer.parseInt(n1);
+        nume2=Integer.parseInt(n2);
+        
+        suma = nume1 + nume2;
+        
+        res=String.valueOf(suma);
+        
+        txtRes.setText(res);
+        
+    }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+        txtPrimerNumero.setText("");
+        txtSegundoNumero.setText("");
+        txtRes.setText("");
+        
+        txtPrimerNumero.requestFocusInWindow();
+    }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,12 +167,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton cmdBorrar;
     private javax.swing.JButton cmdCalcular;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JLabel txtPrimerNumero;
+    private javax.swing.JLabel txtN1;
+    private javax.swing.JLabel txtN2;
+    private javax.swing.JTextField txtPrimerNumero;
+    private javax.swing.JTextField txtRes;
     private javax.swing.JLabel txtResultado;
-    private javax.swing.JLabel txtSegundoNumero;
+    private javax.swing.JTextField txtSegundoNumero;
     // End of variables declaration//GEN-END:variables
 }
